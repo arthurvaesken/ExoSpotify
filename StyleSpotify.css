@@ -1,0 +1,832 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    font-family: "SpotifyMixUI", sans-serif;
+}
+
+
+/*POLICES*/
+
+@font-face {
+    font-family: "SpotifyMixUI";
+    src: url("font/SpotifyMixUI-Regular-cc3b1de388efa4cbca6c75cebc24585e.woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SpotifyMixUI";
+    src: url("font/SpotifyMixUI-Bold-4264b799009b1db5c491778b1bc8e5b7.woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SpotifyMixUITitle";
+    src: url("font/SpotifyMixUITitleVariable-8769ccfde3379b7ebcadd9529b49d0cc.woff2");
+    font-style: normal;
+}
+
+/*SCROLLBAR*/
+
+/* Propriétés standard : Firefox, Chrome 121+, Safari 18.2+.
+   Quand elles s'appliquent, le navigateur ignore les pseudo-éléments
+   ::-webkit-scrollbar plus bas, qui ne servent que de repli. */
+
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Curseur invisible au repos, révélé quand la souris entre dans le panneau */
+aside {
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+aside:hover {
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Repli pour les navigateurs WebKit anciens */
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* La bordure transparente + background-clip donne un curseur de 6px
+   visible dans une zone de clic de 12px, plus confortable à attraper */
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+aside::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+aside:hover::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+/*DISPLAY ET ALIGNEMENTS*/
+
+.display_flex {
+    display: flex;
+}
+
+.display_flex_start {
+    justify-content: flex-start;
+}
+
+.display_inline_block {
+    display: inline-block;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-end {
+    align-items: end;
+}
+
+.justify_self_center {
+    justify-self: center;
+}
+
+.align_self_start {
+    align-self: flex-start;
+}
+
+.flex_direction_column {
+    flex-direction: column;
+}
+
+.flex_wrap_wrap {
+    flex-wrap: wrap;
+}
+
+.position_fixed {
+    position: fixed;
+}
+
+.position_relative {
+    position: relative;
+}
+
+/*ELEMENT HORS FLUX */
+.position_absolute {
+    position: absolute;
+}
+
+.z-index_1 {
+    z-index: 1;
+}
+
+.aspect_ratio_1 {
+    aspect-ratio: 1;
+}
+
+.overflow_hidden {
+    overflow: hidden;
+}
+
+.overflow_y_auto {
+    overflow-y: auto;
+}
+
+.flex_grow_1 {
+    flex-grow: 1;
+}
+
+.flex_1 {
+    flex: 1;
+}
+
+/*POSITIONNEMENT*/
+
+.left_378px {
+    left: 434px;
+}
+
+.top_76px {
+    top: 76px;
+}
+
+.top_10px {
+    top: 10px;
+}
+
+/*ESPACEMENTS*/
+
+.gap_6 {
+    gap: 6px;
+}
+
+.gap_8 {
+    gap: 8px;
+}
+
+.gap_10 {
+    gap: 10px;
+}
+
+.gap_12 {
+    gap: 12px;
+}
+
+.gap_16 {
+    gap: 16px;
+}
+
+.gap_32 {
+    gap: 32px;
+}
+
+.p_8 {
+    padding: 8px;
+}
+
+.p_12 {
+    padding: 12px;
+}
+
+.p_0_24 {
+    padding: 0 24px;
+}
+
+.p_1_5 {
+    padding: 1px 5px;
+}
+
+.p_5_14 {
+    padding: 5px 14px;
+}
+
+.p_8_16 {
+    padding: 8px 16px;
+}
+
+.p_4_16 {
+    padding: 4px 16px;
+}
+
+.p_12_16 {
+    padding: 12px 16px;
+}
+
+.p_16_20 {
+    padding: 16px 20px;
+}
+
+.p_12_32 {
+    padding: 12px 32px;
+}
+
+.p_20_40 {
+    padding: 22px 40px;
+}
+
+.p_16_8_8 {
+    padding: 16px 8px 8px;
+}
+
+.p_left_2px {
+    padding-left: 2px;
+}
+
+.p_bot_90px {
+    padding-bottom: 90px;
+}
+
+.p_left_right_8 {
+    padding: 0 8px;
+}
+
+.p_left_right_16 {
+    padding: 0 16px;
+}
+
+.p_top_32px {
+    padding-top: 32px;
+}
+
+.m_left_right_20 {
+    margin: 0 20px;
+}
+
+.m_left_right_16 {
+    margin: 0 16px;
+}
+
+.m_32_0 {
+    margin: 32px 0;
+}
+
+.m_0_16_0_0 {
+    margin: 6px 16px 6px 0;
+}
+
+.m_top_24px {
+    margin-top: 24px;
+}
+
+.m_top_50px {
+    margin-top: 50px;
+}
+
+.m_top_85px {
+    margin-top: 85px;
+}
+
+.m_bot_12px {
+    margin-bottom: 12px;
+}
+
+.m_bot_18px {
+    margin-bottom: 18px;
+}
+
+.m_top_32px_bot_32px {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+/*COULEURS*/
+
+.bg_grey {
+    background-color: #2A2A2A;
+}
+
+.bg_dark_grey {
+    background-color: #212121;
+}
+
+.bg_dark_grey_121212 {
+    background-color: #121212;
+}
+
+.bg_grey_212121 {
+    background-color: #212121;
+}
+
+.bg_grey_1F1F1F {
+    background-color: #1F1F1F;
+}
+
+.bg_grey_B3B3B3 {
+    background-color: #B3B3B3;
+}
+
+.bg_white {
+    background-color: #FBFBFB;
+}
+
+.bg_black {
+    background-color: #000000;
+}
+
+.white {
+    color: white;
+}
+
+.grey_B3B3B3 {
+    color: #B3B3B3;
+}
+
+/*BORDER*/
+
+.border_radius_50 {
+    border-radius: 50%;
+}
+
+.border_radius_3em {
+    border-radius: 3em;
+}
+
+.border_radius_2px {
+    border-radius: 2px;
+}
+
+.border_radius_8px {
+    border-radius: 8px;
+}
+
+.border_radius_8px_haut {
+    border-radius: 8px 8px 0 0;
+}
+
+.border_radius_8px_bas {
+    border-radius: 0 0 8px 8px;
+}
+
+.border_1px_solid_white {
+    border: 1px solid white;
+}
+
+.border_bot_1px_solid_292929 {
+    border-bottom: 1px solid #292929;
+}
+
+.border_top_1px_solid_292929 {
+    border-top: 1px solid #292929;
+}
+
+/*TAILLE*/
+
+.w_280px {
+    width: 280px;
+}
+
+.w_100percent {
+    width: 100%;
+}
+
+.w_196px {
+    width: 196px;
+}
+
+.w_h_153px {
+    width: 153px;
+    height: 153px;
+}
+
+.w_h_171 {
+    width: 171.5px;
+    height: 171.5px;
+}
+
+.w_h_48 {
+    width: 48px;
+    height: 48px;
+}
+
+.w_h_40 {
+    width: 40px;
+    height: 40px;
+}
+
+.w_h_32 {
+    width: 32px;
+    height: 32px;
+}
+
+.w_h_24 {
+    width: 24px;
+    height: 24px;
+}
+
+.w_h_20 {
+    width: 20px;
+    height: 20px;
+}
+
+.w_h_16 {
+    width: 16px;
+    height: 16px;
+}
+
+.width_fit_content {
+    width: fit-content;
+}
+
+.object_fit_cover {
+    object-fit: cover;
+}
+
+.min_width_0 {
+    min-width: 0;
+}
+
+/*TYPO*/
+
+/*Supprime les puces d'une liste non ordonnée (<ul>)
+ou les chiffres d'une liste ordonnée (<ol>)*/
+.list_style_none {
+    list-style: none;
+}
+
+.font_weight_400 {
+    font-weight: 400;
+}
+
+.font_weight_500 {
+    font-weight: 500;
+}
+
+.font_weight_700 {
+    font-weight: 700;
+}
+
+.font_size_medium {
+    font-size: medium;
+}
+
+.font_size_small {
+    font-size: small;
+}
+
+.font_size_10px {
+    font-size: 10px;
+}
+
+.font_size_11px {
+    font-size: 11px;
+}
+
+.font_size_12px {
+    font-size: 12px;
+}
+
+.font_size_14px {
+    font-size: 14px;
+}
+
+/*COMPOSANTS*/
+
+.entete_desktop {
+    display: none;
+}
+
+@media (min-width: 870px) {
+    .entete_desktop {
+        display: block;
+    }
+}
+
+.logo_entete {
+    margin: 0 8px;
+}
+
+@media (min-width: 870px) {
+    .logo_entete {
+        margin: 0 20px;
+    }
+}
+
+.barre_recherche {
+    width: 48px;
+    height: 48px;
+    min-width: 0;
+    padding: 0;
+    justify-content: center;
+}
+
+@media (min-width: 981px) {
+    .barre_recherche {
+        width: auto;
+        flex: 1;
+        max-width: 474px;
+        padding: 0 16px;
+        justify-content: space-between;
+    }
+}
+
+.recherche_etendue {
+    display: none;
+}
+
+@media (min-width: 981px) {
+    .recherche_etendue {
+        display: flex;
+    }
+}
+
+.sans_retour {
+    white-space: nowrap;
+}
+
+.pousse_droite {
+    margin-left: auto;
+}
+
+.zone_champ {
+    justify-content: center;
+}
+
+@media (min-width: 981px) {
+    .zone_champ {
+        justify-content: flex-start;
+    }
+}
+
+.entete_tablette {
+    display: none;
+}
+
+@media (min-width: 640px) {
+    .entete_tablette {
+        display: block;
+    }
+}
+
+.panneau_bibliotheque {
+    width: 100%;
+    order: 2;
+}
+
+@media (min-width: 1024px) {
+    .panneau_bibliotheque {
+        position: fixed;
+        top: 64px;
+        width: 280px;
+        height: calc(100vh - 72px);
+        order: 0;
+    }
+}
+
+.zone_principale {
+    margin-left: 0;
+    margin-top: 64px;
+    order: 1;
+}
+
+@media (min-width: 1024px) {
+    .zone_principale {
+        margin-left: 288px;
+        margin-top: 64px;
+        flex: 1;
+        min-width: 0;
+    }
+}
+
+.zone_contenu {
+    display: flex;
+    flex-direction: column;
+    padding: 0 8px;
+}
+
+@media (min-width: 1024px) {
+    .zone_contenu {
+        flex-direction: row;
+    }
+}
+
+.rangee_cartes {
+    display: flex;
+    overflow-x: auto;
+    position: relative;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+.rangee_cartes:hover {
+    scrollbar-color: rgba(255,255,255,0.3) transparent;
+}
+
+.pied_de_page {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+@media (min-width: 1024px) {
+    .pied_de_page {
+        margin-left: 296px;
+    }
+}
+
+.barre_vertical {
+    background: #FBFBFB;
+    width: 1px;
+    height: 25px;
+}
+
+.barre_horizon {
+    background: #FBFBFB;
+    width: 25px;
+    height: 1px;
+}
+
+.bouton_play {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #1ED760;
+    background-image: url("img/pictos/play-fill.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/*ETATS INTERACTIFS*/
+
+nav a {
+    transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: #FFFFFF;
+}
+
+.bg_white {
+    transition: transform 0.2s ease;
+}
+
+.bg_white:hover,
+.bg_white:focus-visible {
+    transform: scale(1.04);
+}
+
+/*BOUTON ACCUEIL*/
+
+header a[aria-current] img {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+header a[aria-current]:hover img,
+header a[aria-current]:focus-visible img {
+    background-color: #2A2A2A;
+    transform: scale(1.04);
+}
+
+/*BARRE DE RECHERCHE*/
+
+form[role="search"] {
+    transition: background-color 0.2s ease;
+}
+
+form[role="search"]:hover,
+form[role="search"]:focus-within {
+    background-color: #2A2A2A;
+}
+
+/*ICONES RESEAUX SOCIAUX*/
+
+.icone_rs {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.icone_rs:hover,
+.icone_rs:focus-visible {
+    background-color: #2A2A2A;
+    transform: scale(1.06);
+}
+
+/*CARTES DU MAIN*/
+
+.carte {
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.carte:hover,
+.carte:focus-visible {
+    background-color: #1F1F1F;
+}
+
+.carte:hover .bouton_play,
+.carte:focus-visible .bouton_play {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*BOUTONS PILLULE BIBLIOTHEQUE*/
+
+.bouton_pilule {
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.bouton_pilule:hover,
+.bouton_pilule:focus-visible {
+    background-color: #2A2A2A;
+    border-color: #FFFFFF;
+    transform: scale(1.04);
+}
+
+
+/*ACCESSIBILITE*/
+
+.screenreader-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/*RESET DES ELEMENTS NATIFS*/
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+input,
+button,
+select,
+textarea {
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    appearance: none;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+::placeholder {
+    color: #B3B3B3;
+    opacity: 1;
+}
+
+a:focus-visible,
+input:focus-visible {
+    outline: 2px solid #1ED760;
+    outline-offset: 2px;
+}
+
+img {
+    display: block;
+}
+
+/*TROUBLE VESTIBULAIRE*/
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+

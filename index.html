@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spotify - Lecteur web : de la musique pour tout le monde</title>
+    <meta name="description"
+          content="Spotify est un service d'écoute de musique en ligne : accédez gratuitement à des millions de titres, playlists et podcasts, sur mobile comme sur ordinateur.">
+    <link rel="stylesheet" href="StyleSpotify.css">
+</head>
+<body>
+<div class="">
+    <!--NAV-BARRE-->
+    <header class="display_flex align-items-center gap_8 p_8 bg_black position_fixed
+                       w_100percent z-index_1">
+        <div class="display_flex align-items-center gap_8">
+            <div class="logo_entete">
+                <img class="w_h_32" src="img/spotify-logo.svg" alt="Logo Spotify blanc et noir">
+            </div>
+            <a href="#" aria-current="page">
+                <img class="bg_grey_1F1F1F border_radius_50 p_12 w_h_48" src="img/pictos/house.svg" alt="Accueil">
+            </a>
+        </div>
+        <form role="search" class="barre_recherche display_flex align-items-center bg_grey_1F1F1F border_radius_3em
+                            p_left_right_16 justify-content-space-between">
+            <div class="zone_champ display_flex align-items-center gap_8 flex_grow_1 min_width_0">
+                <img class="w_h_24" src="img/pictos/magnifying-glass.svg" alt="">
+                <label for="recherche" class="screenreader-only">Rechercher</label>
+                <input type="search" id="recherche" class="recherche_etendue white flex_grow_1 min_width_0"
+                       placeholder="Que souhaitez-vous écouter ou regarder ?">
+            </div>
+            <div class="recherche_etendue align-items-center gap_8">
+                <div class="barre_vertical"></div>
+                <a href="#"><img class="w_h_24" src="img/pictos/vinyl-record.svg" alt="Parcourir"></a>
+            </div>
+        </form>
+        <div class="pousse_droite display_flex align-items-center gap_16">
+            <nav class="entete_tablette" aria-label="Navigation principale">
+                <ul class="display_flex list_style_none grey_B3B3B3 gap_8 font_weight_700">
+                    <li><a href="#">Premium</a></li>
+                    <li><a href="#">Assistance</a></li>
+                    <li><a href="#">Télécharger</a></li>
+                </ul>
+            </nav>
+            <div class="entete_desktop barre_vertical m_left_right_16"></div>
+            <nav class="entete_desktop" aria-label="Navigation secondaire">
+                <ul class="display_flex list_style_none grey_B3B3B3 gap_16 font_weight_700 font_size_14px">
+                    <li><a href="#" class="sans_retour display_flex align-items-center gap_8"><img class="w_h_20"
+                                                                                       src="img/pictos/arrow-circle-down.svg"
+                                                                                       alt="">Installer l'appli</a></li>
+                    <li><a href="#">S'inscrire</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="sans_retour bg_white border_radius_3em p_12_32 font_weight_700">
+                Se connecter
+            </a>
+        </div>
+    </header>
+    <!--FIN NAV-BARRE-->
+    <div class="zone_contenu">
+        <!-----ASIDE----->
+        <aside class="panneau_bibliotheque bg_dark_grey_121212 border_radius_8px overflow_y_auto p_left_right_8">
+            <div class="display_flex align-items-center justify-content-space-between p_16_8_8">
+                <h2 class="white font_size_medium">Bibliothèque</h2>
+                <button type="button" class="bouton_pilule display_flex bg_grey_1F1F1F
+                border_radius_3em p_8_16 font_size_14px align-items-center gap_8
+                white font_weight_700">
+                    <img class="w_h_24" src="img/pictos/plus.svg" alt="">
+                    <span>Créer</span>
+                </button>
+            </div>
+            <div class="display_flex border_radius_8px bg_grey_1F1F1F p_16_20 gap_10 flex_direction_column
+                            m_top_24px">
+                <h3 class="white font_size_medium">Créez votre première playlist</h3>
+                <p class="white font_size_small m_bot_12px">C'est simple, nous allons vous aider</p>
+                <button type="button"
+                        class="bg_white border_radius_3em width_fit_content p_4_16 font_weight_700 font_size_14px">
+                    Créez une playlist
+                </button>
+            </div>
+            <div class="display_flex border_radius_8px bg_grey_1F1F1F p_16_20 gap_10 flex_direction_column
+                            m_top_24px">
+                <h3 class="white font_size_medium">Cherchons quelques podcasts auxquels vous abonner</h3>
+                <p class="white font_size_small m_bot_12px">Nous vous transmettrons des informations sur les nouveaux
+                    épisodes</p>
+                <a href="#" class="bg_white border_radius_3em width_fit_content p_4_16 font_weight_700 font_size_14px">
+                    Parcourir les podcasts
+                </a>
+            </div>
+            <footer class="p_0_24 m_top_85px">
+                <nav aria-label="Liens légaux">
+                    <ul class="display_flex flex_wrap_wrap white font_size_11px list_style_none">
+                        <li class="m_0_16_0_0"><a href="#">Légal</a></li>
+                        <li class="m_0_16_0_0"><a href="#">Centre de sécurité et de confidentialité</a></li>
+                        <li class="m_0_16_0_0"><a href="#">Protection des données</a></li>
+                        <li class="m_0_16_0_0"><a href="#">Paramètres des cookies</a></li>
+                        <li class="m_0_16_0_0"><a href="#">À propos des pubs</a></li>
+                        <li class="m_0_16_0_0"><a href="#">Accessibilité</a></li>
+                        <li class="m_0_16_0_0 w_100percent"><a href="#">Cookies</a></li>
+                    </ul>
+                </nav>
+                <button type="button" class="bouton_pilule font_size_small font_weight_700 border_1px_solid_white border_radius_3em
+                                display_flex align-items-center p_5_14 gap_8 m_top_32px_bot_32px white">
+                    <img class="w_h_20" src="img/pictos/globe.svg" alt="">
+                    Français
+                </button>
+            </footer>
+        </aside>
+        <!--FIN ASIDE-->
+        <!--MAIN-->
+        <!--TITRES TENDANCES-->
+        <main class="zone_principale display_flex flex_direction_column bg_dark_grey_121212
+        border_radius_8px_haut p_20_40">
+            <h1 class="screenreader-only">Accueil</h1>
+            <div class="display_flex justify-content-space-between m_bot_18px align-items-end">
+                <h2 class="white">Titres tendances</h2>
+                <a href="#" class="white font_size_14px">Tout afficher</a>
+            </div>
+            <div class="rangee_cartes">
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img class="w_h_171 border_radius_8px" src="img/titrestendances/americangirls.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">American Girls</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="border_radius_2px bg_grey_B3B3B3 font_size_12px p_1_5 font_weight_700"
+                              aria-hidden="true">E</span><span class="screenreader-only">Explicite</span>
+                        <span class="grey_B3B3B3 font_size_14px">Harry Styles</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img class="w_h_171 border_radius_8px" src="img/titrestendances/babydoll.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">Babydoll</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="border_radius_2px bg_grey_B3B3B3 font_size_12px p_1_5 font_weight_700"
+                              aria-hidden="true">E</span><span class="screenreader-only">Explicite</span>
+                        <span class="grey_B3B3B3 font_size_14px">Dominic Fike</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img class="w_h_171 border_radius_8px" src="img/titrestendances/focus.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">Focus</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="border_radius_2px bg_grey_B3B3B3 font_size_12px p_1_5 font_weight_700"
+                              aria-hidden="true">E</span><span class="screenreader-only">Explicite</span>
+                        <span class="grey_B3B3B3 font_size_14px">Bigflo & Oli</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img class="w_h_171 border_radius_8px" src="img/titrestendances/gmk.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">GMK</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="border_radius_2px bg_grey_B3B3B3 font_size_12px p_1_5 font_weight_700"
+                              aria-hidden="true">E</span><span class="screenreader-only">Explicite</span>
+                        <span class="grey_B3B3B3 font_size_14px">WIXO & LA2S</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img class="w_h_171 border_radius_8px" src="img/titrestendances/metgala.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">Met Gala</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="border_radius_2px bg_grey_B3B3B3 font_size_12px p_1_5 font_weight_700"
+                              aria-hidden="true">E</span><span class="screenreader-only">Explicite</span>
+                        <span class="grey_B3B3B3 font_size_14px">Le Crime</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img class="w_h_171 border_radius_8px" src="img/titrestendances/minimum100k.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">MINIMUM 100K</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="border_radius_2px bg_grey_B3B3B3 font_size_12px p_1_5 font_weight_700"
+                              aria-hidden="true">E</span><span class="screenreader-only">Explicite</span>
+                        <span class="grey_B3B3B3 font_size_14px">BANLIEUSARDS, NMK, La Mano 1.9</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img class="w_h_171 border_radius_8px" src="img/titrestendances/srt.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">SRT FULL NWAR</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="border_radius_2px bg_grey_B3B3B3 font_size_12px p_1_5 font_weight_700"
+                              aria-hidden="true">E</span><span class="screenreader-only">Explicite</span>
+                        <span class="grey_B3B3B3 font_size_14px">MINUISKI</span>
+                    </div>
+                </a>
+            </div>
+            <!--FIN TITRES TENDANCES-->
+            <!--ARTISTES POPULAIRES-->
+            <div class="display_flex justify-content-space-between m_bot_18px m_top_50px align-items-end">
+                <h2 class="white">Artistes populaires</h2>
+                <a href="#" class="white font_size_14px">Tout afficher</a>
+            </div>
+            <div class="rangee_cartes">
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12 align-items-center">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_50 object_fit_cover" src="img/artistes/davidg.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <div class="display_flex flex_direction_column align_self_start gap_6 p_left_2px">
+                        <span class="white">David Guetta</span>
+                        <span class="grey_B3B3B3 font_size_14px">Artiste</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12 align-items-center">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_50 object_fit_cover" src="img/artistes/gims.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <div class="display_flex flex_direction_column align_self_start gap_6 p_left_2px">
+                        <span class="white">GIMS</span>
+                        <span class="grey_B3B3B3 font_size_14px">Artiste</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12 align-items-center">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_50 object_fit_cover" src="img/artistes/hamza.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <div class="display_flex flex_direction_column align_self_start gap_6 p_left_2px">
+                        <span class="white">Hamza</span>
+                        <span class="grey_B3B3B3 font_size_14px">Artiste</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12 align-items-center">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_50 object_fit_cover" src="img/artistes/jul.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <div class="display_flex flex_direction_column align_self_start gap_6 p_left_2px">
+                        <span class="white">JUL</span>
+                        <span class="grey_B3B3B3 font_size_14px">Artiste</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12 align-items-center">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_50 object_fit_cover" src="img/artistes/keblack.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <div class="display_flex flex_direction_column align_self_start gap_6 p_left_2px">
+                        <span class="white">KeBlack</span>
+                        <span class="grey_B3B3B3 font_size_14px">Artiste</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12 align-items-center">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_50 object_fit_cover" src="img/artistes/ninho.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <div class="display_flex flex_direction_column align_self_start gap_6 p_left_2px">
+                        <span class="white">Ninho</span>
+                        <span class="grey_B3B3B3 font_size_14px">Artiste</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12 align-items-center">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_50 object_fit_cover" src="img/artistes/werenoi.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <div class="display_flex flex_direction_column align_self_start gap_6 p_left_2px">
+                        <span class="white">Werenoi</span>
+                        <span class="grey_B3B3B3 font_size_14px">Artiste</span>
+                    </div>
+                </a>
+            </div>
+            <!--FIN ARTISTES POPULAIRES-->
+            <!--ALBUM ET SINGLES POPULAIRES-->
+            <div class="display_flex justify-content-space-between m_bot_18px align-items-end m_top_50px m_bot_18px">
+                <h2 class="white">Albums et singles populaires</h2>
+                <a href="#" class="white font_size_14px">Tout afficher</a>
+            </div>
+            <div class="rangee_cartes">
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/albumetsinglespop/beyah.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">BĒYĀH</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="grey_B3B3B3 font_size_14px">Damso</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/albumetsinglespop/debitar.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">DeBÍ TiRAR MáS FOToS</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="grey_B3B3B3 font_size_14px">Bad Bunny</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/albumetsinglespop/destin.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">Destin</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="grey_B3B3B3 font_size_14px">Ninho</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/albumetsinglespop/diamantnoir.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">Diamant Noir</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="grey_B3B3B3 font_size_14px">Werenoi</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/albumetsinglespop/dpavie.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">D&P à vie</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="grey_B3B3B3 font_size_14px">JUL</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/albumetsinglespop/kykydebondy.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">KYKY2BONDY</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="grey_B3B3B3 font_size_14px">Hamza</span>
+                    </div>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/albumetsinglespop/lenordsesouvient.webp"
+                             alt="">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="white">LE NORD SE SOUVIENT</span>
+                    <div class="display_inline_block gap_8">
+                        <span class="grey_B3B3B3 font_size_14px">GIMS</span>
+                    </div>
+                </a>
+            </div>
+            <!--FIN ALBUMS ET SINGLES POPULAIRE-->
+            <!--RADIO TENDANCE-->
+            <div class="display_flex justify-content-space-between m_bot_18px align-items-end m_top_50px m_bot_18px">
+                <h2 class="white">Radio tendance</h2>
+                <a href="#" class="white font_size_14px">Tout afficher</a>
+            </div>
+            <div class="rangee_cartes">
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/radiotendance/amy.webp"
+                             alt="Amy Winehouse">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">Avec Duffy, Alicia Keys, Sade et bien d'autres ...</span>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/radiotendance/aya.webp"
+                             alt="Aya Nakamura">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">Avec Merveille, Tiakola, Shay et bien d'autres ...</span>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/radiotendance/badbunny.webp"
+                             alt="Bad Bunny">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">Avec KAROL G, Arcángel, Feid et bien d'autres ...</span>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/radiotendance/gims.webp"
+                             alt="GIMS">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">Avec Dr. Yaro, Sexion d'Assaut, Ninho et bien ...</span>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/radiotendance/imaginedragons.webp"
+                             alt="Imagine Dragons">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">Avec Coldplay, Fall Out Boy, The Chainsmokers ...</span>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/radiotendance/jul.webp"
+                             alt="JUL">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">Avec Moha La Squale, Bouss, PNL et bien ...</span>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/radiotendance/redhot.webp"
+                             alt="Red Hot Chili Peppers">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">Avec Nirvana, The Offspring, System Of ...</span>
+                </a>
+            </div>
+            <!--FIN RADIO TENDANCE-->
+            <!--CLASSEMENTS RECOMMANDES-->
+            <div class="display_flex justify-content-space-between m_bot_18px align-items-end m_top_50px m_bot_18px">
+                <h2 class="white">Classements recommandés</h2>
+                <a href="#" class="white font_size_14px">Tout afficher</a>
+            </div>
+            <div class="rangee_cartes p_bot_90px border_bot_1px_solid_292929">
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/classementreco/toptitresmonde.webp"
+                             alt="Top Titres Monde">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">Monde : votre point hebdomadaire sur le ...</span>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/classementreco/toptitresfr.webp"
+                             alt="Top Titres France">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">France : votre point hebdomadaire sur le ...</span>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/classementreco/top50glob.webp"
+                             alt="Top 50 Global">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">Monde : votre point quotidien sur le ...</span>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/classementreco/top50fr.webp"
+                             alt="Top 50 France ">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">France : votre point quotidien sur le ...</span>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/classementreco/viral50glob.webp"
+                             alt="Viral 50 Global">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">Monde : votre point quotidien sur le ...</span>
+                </a>
+                <a href="#" class="carte display_flex flex_direction_column gap_6 w_196px p_12">
+                    <div class="position_relative">
+                        <img loading="lazy" class="w_h_171 border_radius_8px" src="img/classementreco/viral50fr.webp"
+                             alt="Viral 50 Global">
+                        <span class="bouton_play" aria-hidden="true"></span>
+                    </div>
+                    <span class="grey_B3B3B3 font_size_14px">France : votre point quotidien sur le ...</span>
+                </a>
+            </div>
+        </main>
+        <!--FIN MAIN-->
+    </div>
+
+    <footer class="pied_de_page bg_dark_grey_121212 border_radius_8px_bas p_20_40">
+        <div class="display_flex justify-content-space-between flex_wrap_wrap gap_32 p_top_32px">
+            <nav aria-label="Pied de page">
+                <div class="display_flex flex_wrap_wrap gap_32">
+                    <div class="display_flex flex_direction_column gap_12">
+                        <h2 class="grey_B3B3B3 font_size_14px font_weight_700">Société</h2>
+                        <ul class="display_flex flex_direction_column gap_12 list_style_none white font_size_14px">
+                            <li><a href="#">À propos</a></li>
+                            <li><a href="#">Offres d'emploi</a></li>
+                            <li><a href="#">For the Record</a></li>
+                        </ul>
+                    </div>
+                    <div class="display_flex flex_direction_column gap_12">
+                        <h2 class="grey_B3B3B3 font_size_14px font_weight_700">Communautés</h2>
+                        <ul class="display_flex flex_direction_column gap_12 list_style_none white font_size_14px">
+                            <li><a href="#">Espace artistes</a></li>
+                            <li><a href="#">Développeurs</a></li>
+                            <li><a href="#">Campagnes publicitaires</a></li>
+                            <li><a href="#">Investisseurs</a></li>
+                            <li><a href="#">Fournisseurs</a></li>
+                        </ul>
+                    </div>
+                    <div class="display_flex flex_direction_column gap_12">
+                        <h2 class="grey_B3B3B3 font_size_14px font_weight_700">Liens utiles</h2>
+                        <ul class="display_flex flex_direction_column gap_12 list_style_none white font_size_14px">
+                            <li><a href="#">Assistance</a></li>
+                            <li><a href="#">Appli mobile gratuite</a></li>
+                            <li><a href="#">Populaire par pays</a></li>
+                            <li><a href="#">Importer votre musique</a></li>
+                        </ul>
+                    </div>
+                    <div class="display_flex flex_direction_column gap_12">
+                        <h2 class="grey_B3B3B3 font_size_14px font_weight_700">Abonnements Spotify</h2>
+                        <ul class="display_flex flex_direction_column gap_12 list_style_none white font_size_14px">
+                            <li><a href="#">Premium Personnel</a></li>
+                            <li><a href="#">Premium Duo</a></li>
+                            <li><a href="#">Premium Famille</a></li>
+                            <li><a href="#">Premium Étudiants</a></li>
+                            <li><a href="#">Spotify Free</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <nav aria-label="Spotify sur les réseaux sociaux">
+                <ul class="display_flex gap_16 list_style_none">
+                    <li><a href="https://www.instagram.com/spotify" target="_blank" rel="noopener noreferrer"
+                           class="icone_rs display_flex align-items-center justify-content-center bg_grey_1F1F1F border_radius_50 w_h_40">
+                        <img class="w_h_20" src="img/reseaux/instagram-logo.svg" alt="Instagram">
+                        <span class="screenreader-only"> (nouvel onglet)</span>
+                    </a></li>
+                    <li><a href="https://x.com/spotify" target="_blank" rel="noopener noreferrer"
+                           class="icone_rs display_flex align-items-center justify-content-center bg_grey_1F1F1F border_radius_50 w_h_40">
+                        <img class="w_h_20" src="img/reseaux/twitter-logo-fill.svg" alt="X">
+                        <span class="screenreader-only"> (nouvel onglet)</span>
+                    </a></li>
+                    <li><a href="https://www.facebook.com/Spotify" target="_blank" rel="noopener noreferrer"
+                           class="icone_rs display_flex align-items-center justify-content-center bg_grey_1F1F1F border_radius_50 w_h_40">
+                        <img class="w_h_20" src="img/reseaux/facebook-logo-fill.svg" alt="Facebook">
+                        <span class="screenreader-only"> (nouvel onglet)</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="display_flex justify-content-space-between align-items-center flex_wrap_wrap gap_16 m_top_50px border_top_1px_solid_292929 p_top_32px">
+            <nav aria-label="Informations légales">
+                <ul class="display_flex flex_wrap_wrap gap_16 list_style_none grey_B3B3B3 font_size_14px">
+                    <li><a href="mentions-legales.html">Mentions légales</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Paramètres des cookies</a></li>
+                </ul>
+            </nav>
+            <p class="grey_B3B3B3 font_size_14px">© 2026 Spotify AB</p>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
